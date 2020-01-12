@@ -23,7 +23,7 @@ class ControllerSecteur extends Controller
         $title = "Liste des secteurs";
         $secteurs = $this->findAll();
 
-        require(__DIR__ . '/../view/viewSecteurs.php');
+        require(__DIR__ . '/../view/Secteur/viewSecteurs.php');
     }
 
     public function viewSecteur($id) : void
@@ -31,13 +31,26 @@ class ControllerSecteur extends Controller
         $title = "Informations du secteur";
         $secteur = $this->findById($id);
 
-        require(__DIR__ . '/../view/viewSecteur.php');
+        require(__DIR__ . '/../view/Secteur/viewSecteur.php');
     }
 
     public function addSecteur() : void
     {
         $secteur = new Secteur(null, $_POST["libelle"]);
         $this->insert($secteur);
+        header("Location: index.php?action=viewSecteurs");
+    }
+
+    public function deleteSecteur($id) : void
+    {
+        $this->delete($id);
+        header("Location: index.php?action=viewSecteurs");
+    }
+
+    public function updateSecteur() : void
+    {
+        $secteur = new Secteur($_POST["id"], $_POST["libelle"]);
+        $this->update($secteur);
         header("Location: index.php?action=viewSecteurs");
     }
 

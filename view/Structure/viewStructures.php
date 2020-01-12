@@ -20,12 +20,13 @@ foreach ($structures as $structure) { ?>
         <tr><td>Rue</td><td><input required type="text" name="rue"></td></tr>
         <tr><td>CP</td><td><input required type="text" name="cp"></td></tr>
         <tr><td>Ville</td><td><input required type="text" name="ville"></td></tr>
-        <tr><td>Est une association</td><td><input required type="checkbox" name="estAsso"></td></tr>
-        <tr><td>Nombre de donateurs</td><td><input type="text" name="nb_donateurs"></td></tr>
-        <tr><td>Nombre d'actionnaires</td><td><input type="text" name="nb_actionnaires"></td></tr>
+        <tr><td>Est une association</td><td><input type="checkbox" name="estAsso"></td></tr>
+        <tr><td>Nombre de donateurs</td><td><input type="number" name="nb_donateurs"></td></tr>
+        <tr><td>Nombre d'actionnaires</td><td><input type="number" name="nb_actionnaires"></td></tr>
     </table>
     <input type="submit" name="add" value="Ajouter">
 </form>
-<br/><br/><a href="index.php?action=viewSecteurs">Liste des secteurs</a>
+<br/><br/><a href="index.php?action=viewSecteurs">Liste des secteurs</a><br/>
+<a href="index.php?action=viewSecteursStructuresAll">Liste des secteursStructures</a>
 </body>
 </html>

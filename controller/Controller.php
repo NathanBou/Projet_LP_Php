@@ -65,4 +65,14 @@ abstract class Controller
         $this->getManager()->insert($e);
     }
 
+    public function delete(int $id) : void
+    {
+        $this->getManager()->delete($id);
+    }
+
+    public function update(Entity $e): void
+    {
+        $this->getManager()->update($e);
+    }
+
 }

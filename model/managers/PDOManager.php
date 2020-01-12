@@ -151,5 +151,6 @@ abstract class PDOManager
     public abstract function find() : PDOStatement;
     public abstract function findAll(int $pdoFecthMode) : array;
     public abstract function insert(Entity $e) : PDOStatement;
-
+    public abstract function delete(int $id) : PDOStatement;
+    public abstract function update(Entity $e) : PDOStatement;
 }

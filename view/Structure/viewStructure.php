@@ -28,9 +28,22 @@ if($structure->getNbDonateurs()!=null){
 ?>
     Nombre d'actionnaires : <?= $structure->getNbActionnaires() ?><br/><br/>
 <?php
+
 }
 ?>
+<br>
+<form method="post" action="index.php?action=viewAddSecteursStructures&id=<?= $structure->getId()?>">
+    <input type="submit" name="addSecteursStructures" value="Ajouter un secteur"/>
+</form>
+<form method="post" action="index.php?action=viewUpdateStructure&id=<?= $structure->getId()?>">
+    <input type="submit" name="updateStructure" value="Modifier"/>
+</form>
+<form method="post" action="index.php?action=deleteStructure&id=<?= $structure->getId()?>">
+    <input type="submit" name="deleteStructure" value="Supprimer"/>
+</form>
+<br>
 <a href="index.php?action=viewStructures">Liste des structures</a><br/>
-<a href="index.php?action=viewSecteurs">Liste des secteurs</a>
+<a href="index.php?action=viewSecteurs">Liste des secteurs</a><br/>
+<a href="index.php?action=viewSecteursStructuresAll">Liste des secteursStructures</a>
 </body>
 </html>

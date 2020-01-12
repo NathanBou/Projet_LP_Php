@@ -43,7 +43,22 @@ class StructureManager extends PDOManager
 
     public function insert(Entity $e): PDOStatement
     {
-        $req = "insert into structure(id, nom, rue, cp, ville, estasso, nb_donateurs, nb_actionnaires) values (:id, :nom, :rue, :cp, :ville, :estasso, :nb_donateurs, :nb_actionnaires)";
+        $req = "insert into structure(id, nom, rue, cp, ville, estAsso, nb_donateurs, nb_actionnaires) values (:id, :nom, :rue, :cp, :ville, :estAsso, :nb_donateurs, :nb_actionnaires)";
+        $params = array("id" => $e->getId(), "nom" => $e->getNom(), "rue" => $e->getRue(), "cp" => $e->getCp(),
+            "ville" => $e->getVille(), "estAsso" => $e->getEstAsso(), "nb_donateurs" => $e->getNbDonateurs(), "nb_actionnaires" => $e->getNbActionnaires());
+        $res=$this->executePrepare($req,$params);
+        return $res;
+    }
+
+    public function delete(int $id): PDOStatement
+    {
+        $stmt = $this->executePrepare("delete from structure where id=:id", [ "id" => $id]);
+        return $stmt;
+    }
+
+    public function update(Entity $e): PDOStatement
+    {
+        $req = "update structure set nom=:nom, rue=:rue, cp=:cp, ville=:ville, estAsso=:estAsso, nb_donateurs=:nb_donateurs, nb_actionnaires=:nb_actionnaires where id=:id";
         $params = array("id" => $e->getId(), "nom" => $e->getNom(), "rue" => $e->getRue(), "cp" => $e->getCp(),
             "ville" => $e->getVille(), "estAsso" => $e->getEstAsso(), "nb_donateurs" => $e->getNbDonateurs(), "nb_actionnaires" => $e->getNbActionnaires());
         $res=$this->executePrepare($req,$params);
